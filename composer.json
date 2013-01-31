@@ -1,0 +1,23 @@
+{
+    "name": "franmomu/silex-pagerfanta-provider",
+    "type": "library",
+    "description": "Silex ServiceProvider for Pagerfanta Library",
+    "keywords": ["silex", "service provider", "pagerfanta"],
+    "homepage": "https://github.com/franmomu/silex-pagerfanta-provider",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fran Moreno",
+            "email": "franmomu@gmail.com",
+            "homepage": "http://showmethecode.es"
+        }
+    ],
+    "require": {
+        "pagerfanta/pagerfanta": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "FranMoreno": "src/"
+        }
+    }
+}
