@@ -44,7 +44,11 @@ class PagerfantaServiceProvider implements ServiceProviderInterface
         $app['pagerfanta.view.options'] = array_replace($app['pagerfanta.view.default_options'], $options);
 
         if (isset($app['twig'])) {
-            $app['twig']->addExtension(new PagerfantaExtension($app));
+            $app->extend('twig', function($twig, $app) {
+                $twig->addExtension(new PagerfantaExtension($app));
+
+                return $twig;
+            });
         }
     }
 }
