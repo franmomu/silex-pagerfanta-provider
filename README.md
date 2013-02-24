@@ -5,7 +5,6 @@ Provider to use [Pagerfanta](https://github.com/whiteoctober/Pagerfanta) with [S
 This Provider is based on [WhiteOctoberPagerfantaBundle](https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle) and includes:
   * Twig function to render pagerfantas with views and options.
   * Way to use easily views.
-  * Way to reuse options in views.
 
 #### Registering
 
