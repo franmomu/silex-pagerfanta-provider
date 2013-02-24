@@ -38,6 +38,8 @@ The routes are generated automatically for the current route using the variable
 "page" to propagate the page number. By default, the bundle uses the
 *DefaultView* with the *default* name. 
 
+    {{ pagerfanta(my_pager) }}
+
 If you want to use a custom template, add another argument
 
     <div class="pagerfanta">
@@ -68,3 +70,22 @@ And set as default view:
     $app['pagerfanta.view.options.default_view'] = array(
         'default_view'  => 'my_view'
     );
+
+#### Use in controllers
+
+    use Pagerfanta\Pagerfanta;
+    use Pagerfanta\Adapter\ArrayAdapter;
+
+    $app->get('/index', function (Request $request) use ($app) {
+
+        $results = $app['some.service']->getResults();
+    
+        $adapter = new ArrayAdapter($results);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(10);
+        $pagerfanta->setCurrentPage($request->query->get('page', 1));
+    
+        return $app['twig']->render('index.html', array(
+            'my_pager' => $pagerfanta
+        ));
+    })
