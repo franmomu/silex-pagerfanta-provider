@@ -36,7 +36,7 @@ class PagerfantaExtension extends \Twig_Extension
         $options = array_replace($this->app['pagerfanta.view.options'], $options);
 
         if (null === $viewName) {
-            $viewName = 'twitter_bootstrap';
+            $viewName = $options['default_view'];
         }
 
         $router = $this->app['url_generator'];
@@ -45,10 +45,6 @@ class PagerfantaExtension extends \Twig_Extension
             $request = $this->app['request'];
 
             $options['routeName'] = $request->attributes->get('_route');
-            if ('_internal' === $options['routeName']) {
-                throw new \Exception('PagerfantaBundle can not guess the route when used in a subrequest');
-            }
-
             $options['routeParams'] = array_merge($request->query->all(), $request->attributes->get('_route_params'));
         }
 

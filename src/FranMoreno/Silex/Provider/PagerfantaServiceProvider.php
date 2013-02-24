@@ -19,9 +19,10 @@ class PagerfantaServiceProvider implements ServiceProviderInterface
             'routeName'     => null,
             'routeParams'   => array(),
             'pageParameter' => '[page]',
-            'proximity' => 3,
-            'next_message' => '&raquo;',
-            'prev_message' => '&laquo;'
+            'proximity'     => 3,
+            'next_message'  => '&raquo;',
+            'prev_message'  => '&laquo;',
+            'default_view'  => 'default'
         );
 
         $app['pagerfanta.view_factory'] = $app->share(function ($app) {
