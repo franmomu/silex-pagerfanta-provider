@@ -27,3 +27,26 @@ $app['pagerfanta.view.options'] = array(
     'default_view'  => 'default'
 );
 ```
+
+Rendering pagination
+---------------------
+
+The Twig Extension provides this function:
+
+    {{ pagerfanta(my_pager, view_name, view_options) }}
+
+The routes are generated automatically for the current route using the variable
+"page" to propagate the page number. By default, the bundle uses the
+*DefaultView* with the *default* name. 
+
+If you want to use a custom template, add another argument
+
+    <div class="pagerfanta">
+        {{ pagerfanta(my_pager, 'my_template') }}
+    </div>
+
+With Options
+
+    {{ pagerfanta(my_pager, 'default', { 'proximity': 2}) }}
+
+See the Pagerfanta documentation for the list of the parameters.
