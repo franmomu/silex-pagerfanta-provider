@@ -28,8 +28,7 @@ $app['pagerfanta.view.options'] = array(
 );
 ```
 
-Rendering pagination
----------------------
+#### Rendering pagination
 
 The Twig Extension provides this function:
 
@@ -50,3 +49,22 @@ With Options
     {{ pagerfanta(my_pager, 'default', { 'proximity': 2}) }}
 
 See the Pagerfanta documentation for the list of the parameters.
+
+#### Adding a custom template
+
+You can use the CSS classes provided with DefaultView, but if you want to create a Custom View, you have to implement ```Pagerfanta\View\ViewInterface```, then add the View to the Factory:
+
+    $app['pagerfanta.view_factory'] = $app->share($app->extend('pagerfanta.view_factory', function($viewFactory, $app) {
+        $customView = new \Foo\Bar\View\CustomView();
+        $viewFactory->add(array(
+            'my_view' => $customView
+        ));
+    
+        return $viewFactory;
+    }));
+    
+And set as default view:
+
+    $app['pagerfanta.view.options.default_view'] = array(
+        'default_view'  => 'my_view'
+    );
