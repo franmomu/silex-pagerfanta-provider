@@ -67,7 +67,7 @@ You can use the CSS classes provided with DefaultView, but if you want to create
     
 And if you want set as default view:
 
-    $app['pagerfanta.view.options.default_view'] = array(
+    $app['pagerfanta.view.options'] = array(
         'default_view'  => 'my_view'
     );
 
