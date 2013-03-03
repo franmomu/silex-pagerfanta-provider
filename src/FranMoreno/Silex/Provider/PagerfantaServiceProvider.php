@@ -8,13 +8,17 @@ use Silex\ServiceProviderInterface;
 use Pagerfanta\View\DefaultView;
 use Pagerfanta\View\TwitterBootstrapView;
 use Pagerfanta\View\ViewFactory;
-
+use FranMoreno\Silex\Service\PagerfantaFactory;
 use FranMoreno\Silex\Twig\PagerfantaExtension;
 
 class PagerfantaServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
+        $app['pagerfanta.pager_factory'] = $app->share(function ($app) {
+            return new PagerfantaFactory();
+        });
+
         $app['pagerfanta.view.default_options'] = array(
             'routeName'     => null,
             'routeParams'   => array(),
