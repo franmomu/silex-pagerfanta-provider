@@ -41,12 +41,6 @@ class PagerfantaServiceProvider implements ServiceProviderInterface
 
             return $factoryView;
         });
-    }
-
-    public function boot(Application $app)
-    {
-        $options = isset($app['pagerfanta.view.options']) ? $app['pagerfanta.view.options'] : array();
-        $app['pagerfanta.view.options'] = array_replace($app['pagerfanta.view.default_options'], $options);
 
         if (isset($app['twig'])) {
             $app->extend('twig', function($twig, $app) {
@@ -55,5 +49,11 @@ class PagerfantaServiceProvider implements ServiceProviderInterface
                 return $twig;
             });
         }
+    }
+
+    public function boot(Application $app)
+    {
+        $options = isset($app['pagerfanta.view.options']) ? $app['pagerfanta.view.options'] : array();
+        $app['pagerfanta.view.options'] = array_replace($app['pagerfanta.view.default_options'], $options);
     }
 }
