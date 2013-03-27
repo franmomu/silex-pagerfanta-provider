@@ -3,8 +3,7 @@
 namespace FranMoreno\Silex\Twig;
 
 use Silex\Application;
-use Symfony\Component\PropertyAccess\PropertyPath;
-use Symfony\Component\PropertyAccess\PropertyAccessor;
+use Symfony\Component\PropertyAccess\PropertyAccess;
 use Pagerfanta\PagerfantaInterface;
 
 class PagerfantaExtension extends \Twig_Extension
@@ -51,10 +50,11 @@ class PagerfantaExtension extends \Twig_Extension
 
         $routeName = $options['routeName'];
         $routeParams = $options['routeParams'];
-        $pagePropertyPath = new PropertyPath($options['pageParameter']);
-        $propertyAccessor = new PropertyAccessor;
-        $routeGenerator = function($page) use($router, $routeName, $routeParams, $pagePropertyPath, $propertyAccessor) {
-            $propertyAccessor->setValue($routeParams, $pagePropertyPath, $page);
+        $pageParameter = $options['pageParameter'];
+        $propertyAccessor = PropertyAccess::getPropertyAccessor();
+        
+        $routeGenerator = function($page) use($router, $routeName, $routeParams, $pageParameter, $propertyAccessor) {
+            $propertyAccessor->setValue($routeParams, $pageParameter, $page);
             return $router->generate($routeName, $routeParams);
         };
 
