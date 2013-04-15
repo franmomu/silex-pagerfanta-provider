@@ -40,6 +40,15 @@ class PagerfantaExtension extends \Twig_Extension
         }
 
         $router = $this->app['url_generator'];
+        
+        //Custom router and router params
+        if (isset($this->app['pagerfanta.view.router.name'])) {
+            $options['routeName'] = $this->app['pagerfanta.view.router.name'];
+        }
+
+        if (isset($this->app['pagerfanta.view.router.params'])) {
+            $options['routeParams'] = $this->app['pagerfanta.view.router.params'];
+        }
 
         if (null === $options['routeName']) {
             $request = $this->app['request'];
