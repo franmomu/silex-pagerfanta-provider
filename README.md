@@ -6,6 +6,20 @@ This Provider is based on [WhiteOctoberPagerfantaBundle](https://github.com/whit
   * Twig function to render pagerfantas with views and options.
   * Way to use easily views.
 
+#### Install
+
+You have to add to your composer.json file:
+
+```
+"franmomu/silex-pagerfanta-provider": "1.0.*@dev"
+```
+
+or if you use Symfony2.2 components:
+
+```
+"franmomu/silex-pagerfanta-provider": "dev-master"
+```
+
 #### Registering
 
 ```
