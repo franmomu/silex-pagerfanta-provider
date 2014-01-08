@@ -7,6 +7,7 @@ use Silex\ServiceProviderInterface;
 
 use Pagerfanta\View\DefaultView;
 use Pagerfanta\View\TwitterBootstrapView;
+use Pagerfanta\View\TwitterBootstrap3View;
 use Pagerfanta\View\ViewFactory;
 use FranMoreno\Silex\Service\PagerfantaFactory;
 use FranMoreno\Silex\Twig\PagerfantaExtension;
@@ -32,11 +33,13 @@ class PagerfantaServiceProvider implements ServiceProviderInterface
         $app['pagerfanta.view_factory'] = $app->share(function ($app) {
             $defaultView = new DefaultView();
             $twitterBoostrapView = new TwitterBootstrapView();
+            $twitterBoostrap3View = new TwitterBootstrap3View();
 
             $factoryView = new ViewFactory();
             $factoryView->add(array(
                 $defaultView->getName() => $defaultView,
-                $twitterBoostrapView->getName() => $twitterBoostrapView
+                $twitterBoostrapView->getName() => $twitterBoostrapView,
+                $twitterBoostrap3View->getName() => $twitterBoostrap3View,
             ));
 
             return $factoryView;

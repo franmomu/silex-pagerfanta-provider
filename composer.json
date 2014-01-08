@@ -15,7 +15,7 @@
     "require": {
         "silex/silex": "~1.0",
         "pagerfanta/pagerfanta": "dev-master",
-        "symfony/property-access": "2.2.*@dev"
+        "symfony/property-access": "~2.2"
     },
     "autoload": {
         "psr-0": {
