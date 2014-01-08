@@ -39,7 +39,7 @@ class PagerfantaServiceProvider implements ServiceProviderInterface
             $factoryView->add(array(
                 $defaultView->getName() => $defaultView,
                 $twitterBoostrapView->getName() => $twitterBoostrapView,
-				$twitterBoostrap3View->getName() => $twitterBoostrap3View
+                $twitterBoostrap3View->getName() => $twitterBoostrap3View
             ));
 
             return $factoryView;
