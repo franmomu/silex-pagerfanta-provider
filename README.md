@@ -32,13 +32,13 @@ This are the default parameters:
 
 ```
 $app['pagerfanta.view.options'] = array(
-    'routeName'     => null,
-    'routeParams'   => array(),
-    'pageParameter' => '[page]',
-    'proximity'     => 3,
-    'next_message'  => '&raquo;',
-    'prev_message'  => '&laquo;',
-    'default_view'  => 'default'
+    'routeName'        => null,
+    'routeParams'      => array(),
+    'pageParameter'    => '[page]',
+    'proximity'        => 3,
+    'next_message'     => '&raquo;',
+    'previous_message' => '&laquo;',
+    'default_view'     => 'default'
 );
 ```
 
