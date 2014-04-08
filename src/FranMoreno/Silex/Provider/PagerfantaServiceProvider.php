@@ -21,13 +21,13 @@ class PagerfantaServiceProvider implements ServiceProviderInterface
         });
 
         $app['pagerfanta.view.default_options'] = array(
-            'routeName'     => null,
-            'routeParams'   => array(),
-            'pageParameter' => '[page]',
-            'proximity'     => 3,
-            'next_message'  => '&raquo;',
-            'prev_message'  => '&laquo;',
-            'default_view'  => 'default'
+            'routeName'        => null,
+            'routeParams'      => array(),
+            'pageParameter'    => '[page]',
+            'proximity'        => 3,
+            'next_message'     => '&raquo;',
+            'previous_message' => '&laquo;',
+            'default_view'     => 'default'
         );
 
         $app['pagerfanta.view_factory'] = $app->share(function ($app) {
