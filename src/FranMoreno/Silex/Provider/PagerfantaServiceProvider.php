@@ -46,11 +46,13 @@ class PagerfantaServiceProvider implements ServiceProviderInterface
         });
 
         if (isset($app['twig'])) {
-            $app->extend('twig', function($twig, $app) {
-                $twig->addExtension(new PagerfantaExtension($app));
+            $app['twig'] = $app->share(
+                $app->extend('twig', function ($twig, $app) {
+                    $twig->addExtension(new PagerfantaExtension($app));
 
-                return $twig;
-            });
+                    return $twig;
+                })
+            );
         }
     }
 
